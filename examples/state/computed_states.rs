@@ -282,11 +282,11 @@ fn toggle_pause(
 }
 
 fn toggle_turbo(
-    input: Res<ButtonInput<KeyCode>>,
+    input: Res<ButtonInput<Key>>,
     current_state: Res<State<AppState>>,
     mut next_state: ResMut<NextState<AppState>>,
 ) {
-    if input.just_pressed(KeyCode::KeyT)
+    if input.just_pressed(Key::Character("t".into()))
         && let AppState::InGame { paused, turbo } = current_state.get()
     {
         next_state.set(AppState::InGame {
